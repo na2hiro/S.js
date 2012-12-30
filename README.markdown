@@ -7,24 +7,29 @@ S-expression parser by JavaScript / [TypeScript][1] generated with [Jison][2]
 no dependencies
 
 ## Usage
-Only S.js is necessary.
+Only S.js is necessary
 
 ### build `Tree`
 these are same tree
 
     var S = require("./S");
-    var tree = S.parse("(a (1 2 . (3)) () c ((()())))"); // from string
-    var tree2 = S.fromList([ 'a', [ '1', '2', '3' ], [], 'c', [ [ [], [] ] ] ]); // from list array 
-    var tree3 = S.fromCons([ 'a', [ [ '1', [ '2', [ '3', [] ] ] ], [ [], [ 'c', [ [ [ [], [ [], [] ] ], [] ], [] ] ] ] ] ]); // from cons array
+    // from string
+    var tree = S.parse("(a (1 2 . (3)) () c ((()())))");
+    // from list array
+    var tree2 = S.fromList([ 'a', [ '1', '2', '3' ], [], 'c', [ [ [], [] ] ] ]);
+    // from cons array
+    var tree3 = S.fromCons([ 'a', [ [ '1', [ '2', [ '3', [] ] ] ], [ [], [ 'c', [ [ [ [], [ [], [] ] ], [] ], [] ] ] ] ] ]);
 
-### convert `Tree` into `list array`
+### convert `Tree` into `list array/string`
 Error is thrown if it's impossible to express without `cons`
 
     console.log(s.toList()); // [ 'a', [ '1', '2', '3' ], [], 'c', [ [ [], [] ] ] ]
-    S.parse("(1 . 2)")
+	console.log(s.toListString()); // "(a (1 2 3) () c ((() ())))"
+    S.parse("(1 . 2)").toList() // Error is thrown
 
 ### convert `Tree` into `cons array`
     console.log(s.toCons()); // [ 'a', [ [ '1', [ '2', [ '3', [] ] ] ], [ [], [ 'c', [ [ [ [], [ [], [] ] ], [] ], [] ] ] ] ] ]
+	console.log(s.toConsString()); // "(a . ((1 . (2 . (3 . ()))) . (() . (c . (((() . (() . ())) . ()) . ())))))"
 
 
 ## Example
