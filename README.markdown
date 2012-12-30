@@ -23,13 +23,13 @@ these are same tree
 ### convert `Tree` into `list array/string`
 Error is thrown if it's impossible to express without `cons`
 
-    console.log(s.toList()); // [ 'a', [ '1', '2', '3' ], [], 'c', [ [ [], [] ] ] ]
-	console.log(s.toListString()); // "(a (1 2 3) () c ((() ())))"
+    console.log(tree.toList()); // [ 'a', [ '1', '2', '3' ], [], 'c', [ [ [], [] ] ] ]
+	console.log(tree.toListString()); // "(a (1 2 3) () c ((() ())))"
     S.parse("(1 . 2)").toList() // Error is thrown
 
 ### convert `Tree` into `cons array/string`
-    console.log(s.toCons()); // [ 'a', [ [ '1', [ '2', [ '3', [] ] ] ], [ [], [ 'c', [ [ [ [], [ [], [] ] ], [] ], [] ] ] ] ] ]
-	console.log(s.toConsString()); // "(a . ((1 . (2 . (3 . ()))) . (() . (c . (((() . (() . ())) . ()) . ())))))"
+    console.log(tree.toCons()); // [ 'a', [ [ '1', [ '2', [ '3', [] ] ] ], [ [], [ 'c', [ [ [ [], [ [], [] ] ], [] ], [] ] ] ] ] ]
+	console.log(tree.toConsString()); // "(a . ((1 . (2 . (3 . ()))) . (() . (c . (((() . (() . ())) . ()) . ())))))"
 
 
 ## Example
