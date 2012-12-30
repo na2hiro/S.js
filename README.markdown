@@ -37,7 +37,7 @@ see example.js
 
 ## For developing
 ### dependencies
-* [TypeScript][1]: `npm install typescript`
+* [TypeScript][1]: `npm install typescript -g`
 * [Jison][2]: `npm install jison -g`
 
 ### files
