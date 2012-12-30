@@ -27,7 +27,7 @@ Error is thrown if it's impossible to express without `cons`
 	console.log(s.toListString()); // "(a (1 2 3) () c ((() ())))"
     S.parse("(1 . 2)").toList() // Error is thrown
 
-### convert `Tree` into `cons array`
+### convert `Tree` into `cons array/string`
     console.log(s.toCons()); // [ 'a', [ [ '1', [ '2', [ '3', [] ] ] ], [ [], [ 'c', [ [ [ [], [ [], [] ] ], [] ], [] ] ] ] ] ]
 	console.log(s.toConsString()); // "(a . ((1 . (2 . (3 . ()))) . (() . (c . (((() . (() . ())) . ()) . ())))))"
 
